@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "Baneador"
   avatar           : "/assets/images/avatar.png"
-  bio              : "Pentester, CTF player<br>HackTheBox ATeam"
+  bio              : "Pentester, CTF player and more"
   location         : "Chile"
   email            : "info@snowscan.io"
   uri              :
@@ -114,10 +114,10 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "slemire"
+  github           : "baneador"
   gitlab           :
   google_plus      :
-  keybase          : "snowscan"
+  keybase          : #"snowscan"
   instagram        :
   lastfm           :
   linkedin         : # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
@@ -131,6 +131,7 @@ author:
   weibo            :
   xing             :
   youtube          : # "https://youtube.com/c/MichaelRoseDesign"
+  hola             : "hola"
 
 
 # Reading Files
