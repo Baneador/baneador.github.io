@@ -2,7 +2,7 @@
 layout: single
 title: Cache - Hack The Box
 excerpt: "On Cache, we start off with bypassing a simple login form that uses client-side user/password validation, then find a vhost with a vulnerable OpenEMR application. After bypassing the login page, obtaining a valid session cookie and dumping the database through a SQLi injection vulnerability we exploit yet another OpenEMR CVE to get a shell. From there we have access to a memcache instance holding more credentials in memory so we can escalate to another user. Using the docker group membership of that last user, we're able to launch a privileged container and get root privileges on the host itself."
-date: 2020-10-10
+date: 
 classes: wide
 header:
   teaser: /assets/images/htb-writeup-cache/cache_logo.png
