@@ -24,7 +24,7 @@ con lo cual obtendremos una salida similar a esta
 
 *Nota*: el archivo id_rsa.pub es nuestra clave publica, y el id_rsa es nuestra clave priviada
 
-ahora lo siguiente, es copiar el contenido de id_rsa.pub en nuestro github, para ello utilizamos el comando
+ahora lo siguiente, es copiar el contenido de id_rsa.pub en nuestro github, para ello utilizamos el comando para visualizarlo
 
 ```
 cat ~/.ssh/id_rsa.pub
@@ -32,6 +32,9 @@ cat ~/.ssh/id_rsa.pub
 
 luego, en tu repositorio de github, debes irte a la sección 
 
-"ajustes" --> ""SSH and GPG Keys" --> "New SSH key"
+1. Ajustes
+![](/assets/images/ssh--key-to-github/github1.png)
+
+""SSH and GPG Keys" --> "New SSH key"
 
 aquí agregas un titulo, pegas el contenido de id_rsa.pub y listo! así de facil :)
