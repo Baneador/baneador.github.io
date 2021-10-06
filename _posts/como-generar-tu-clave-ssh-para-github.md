@@ -33,7 +33,7 @@ cat ~/.ssh/id_rsa.pub
 luego, en tu repositorio de github, debes irte a la sección 
 
 1. Ajustes
-![](/assets/images/ssh--key-to-github/github1.png)
+![](/assets/images/ssh-key-to-github/github1.png)
 
 ""SSH and GPG Keys" --> "New SSH key"
 
