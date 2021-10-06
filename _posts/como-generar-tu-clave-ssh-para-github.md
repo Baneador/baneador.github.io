@@ -2,6 +2,7 @@
 layout: single
 title: Configurar ssh para github
 excerpt: "Generar una clave ssh para trabajar en github es extremadamente sencillo, a continuación te muestro como hacerlo"
+date: 2021-06-10
 classes: wide
 header:
   teaser: /assets/images/htb-writeup-multimaster/multimaster_logo.png
