@@ -1,4 +1,25 @@
-Generar una clave ssh para trabajar en github es extremadamente sencillo, a continuación de muestro como hacerlo
+---
+layout: single
+title: Configurar ssh para github
+excerpt: "Generar una clave ssh para trabajar en github es extremadamente sencillo, a continuación te muestro como hacerlo"
+classes: wide
+header:
+  teaser: /assets/images/htb-writeup-multimaster/multimaster_logo.png
+  teaser_home_page: true
+  icon: /assets/images/hackthebox.webp
+categories:
+  - ssh-key
+  - githug
+tags:
+  - llave ssh
+  - github
+
+---
+
+![](/assets/images/htb-writeup-multimaster/multimaster_logo.png)
+
+
+Generar una clave ssh para trabajar en github es extremadamente sencillo, a continuación te muestro como hacerlo
 
 ## Generación de llave publica y privada ssh
 Lo primero que hay que hacer, es generar la clave publica y privada, para ello ejecutamos el siguiente comando
