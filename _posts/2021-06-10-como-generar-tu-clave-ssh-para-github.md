@@ -14,7 +14,6 @@ categories:
 tags:
   - llave ssh
   - github
-
 ---
 
 ![](/assets/images/htb-writeup-multimaster/multimaster_logo.png)
