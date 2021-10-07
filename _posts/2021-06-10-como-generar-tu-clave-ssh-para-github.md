@@ -5,9 +5,9 @@ excerpt: "Generar una clave ssh para trabajar en github es extremadamente sencil
 date: 2021-06-10
 classes: wide
 header:
-  teaser: /assets/images/ssh-key-to-github/logo-github.png
+  teaser: /assets/images/ssh-key-to-github/logo-github2.png
   teaser_home_page: true
-  icon: /assets/images/hackthebox.webp
+  icon: /assets/images/ssh-key-to-github/logo-github2.png
 categories:
   - ssh-key
   - githug
@@ -16,7 +16,7 @@ tags:
   - github
 ---
 
-![](/assets/images/ssh-key-to-github/logo-github.png)
+![](/assets/images/ssh-key-to-github/logo-github2.png)
 
 
 Generar una clave ssh para trabajar en github es extremadamente sencillo, a continuación te muestro como hacerlo
