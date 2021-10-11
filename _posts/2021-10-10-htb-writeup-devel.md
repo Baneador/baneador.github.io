@@ -78,6 +78,7 @@ put shell.aspx
 ```
 
 una vez subida, nos tendremos que poner en escucha con netcat
+
 ![](/assets/images/htb-writeup-devel/devel7.png)
 
 y ejecutamos el archivo que subimos desde la web
