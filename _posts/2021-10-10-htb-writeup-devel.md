@@ -116,7 +116,12 @@ buscando en internet un exploit para esta versión, encontramos uno, asi que vam
 ![](/assets/images/htb-writeup-devel/devel9.png)
 
 
-Para ejecutar este exploit, primero necesita ser compilado, en caso de que no tengas la utilidad *mingw-w64* (la cual sirve para compilar exploits de windows en linux) puedes instalarla con el siguiente comando
+Para ejecutar este exploit, primero necesita ser compilado
+```
+i686-w64-mingw32-gcc MS11-046.c -o MS11-046.exe -lws2_32
+```
+
+*Nota:* en caso de que no tengas la utilidad *mingw-w64* (la cual sirve para compilar exploits de windows en linux) puedes instalarla con el siguiente comando
 ```
 sudo apt-get install mingw-w64
 ```
