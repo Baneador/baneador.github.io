@@ -1,4 +1,4 @@
- ---
+---
 layout: single
 title: Devel - Hack The Box
 excerpt: "Devel es una maquina windows que se explota mediante un servicio FTP que tiene subida arbitraria de archivos, por medio de esta debilidad, se logra establecer una conexión al equipo victima y ejecutar comandos, luego se logra escalar privilegios por medio de un exploit conocido basado en la versión del sistema operativo."
