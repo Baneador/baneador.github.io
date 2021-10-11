@@ -100,7 +100,7 @@ y ya logramos ganar acceso al sistema
 ![](/assets/images/htb-writeup-devel/devel4.png)
 
 
-# Escalación de privilegios
+# Escalada de privilegios
 Una vez ganado acceso el sistema, podemos ver ante que SO nos estamos enfrentando, con el comando
 ```
 systeminfo
