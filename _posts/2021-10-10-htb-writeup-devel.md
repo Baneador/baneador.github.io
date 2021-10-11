@@ -59,18 +59,26 @@ Nos conectamos al servicio FTP
 ftp 10.10.10.5
 ```
 y observamos 3 archivos
+
 ![](/assets/images/htb-writeup-devel/devel1.png)
+
 
 Si navegamos por el puerto 80, veremos la imagen clasica del servicio IIS de windows, sin embargo, al entrar al servicio FTP está la misma imagen (welcome.png) que nos muestra mediante el puerto 80. Por lo que una vía pontencial de explotación es intentar subir una reverse shell.
 
 Buscando en internet "aspx reverse shell github" encontramos una que nos sirve
+
 ![](/assets/images/htb-writeup-devel/devel2.png)
 
+
 por lo que la descargamos en nuestra maquina de atacante 
+
 ![](/assets/images/htb-writeup-devel/devel3.png)
 
+
 y cambiamos la IP y puerto local a la que nos queremos conectar.
+
 ![](/assets/images/htb-writeup-devel/devel6.png)
+
 
 ahora, nos conectamos al servicio FTP (FTP IP-VICTIMA) y ejecutamos el siguiente comando para subir nuestra shell que acabamos de descargar
 ```
@@ -81,10 +89,14 @@ una vez subida, nos tendremos que poner en escucha con netcat
 
 ![](/assets/images/htb-writeup-devel/devel7.png)
 
+
 y ejecutamos el archivo que subimos desde la web
+
 ![](/assets/images/htb-writeup-devel/devel5.png)
 
+
 y ya logramos ganar acceso al sistema
+
 ![](/assets/images/htb-writeup-devel/devel4.png)
 
 
@@ -95,10 +107,14 @@ systeminfo
 ```
 
 Según la información del SO, estamos ante un Windows 7 6.1.7600
+
 ![](/assets/images/htb-writeup-devel/devel8.png)
 
-buscando en internet un exploit para esta versión, encontramos uno, asi que vamos a probarlo 
+
+buscando en internet un exploit para esta versión, encontramos uno, asi que vamos a probarlo
+
 ![](/assets/images/htb-writeup-devel/devel9.png)
+
 
 Para ejecutar este exploit, primero necesita ser compilado, en caso de que no tengas la utilidad *mingw-w64* (la cual sirve para compilar exploits de windows en linux) puedes instalarla con el siguiente comando
 ```
@@ -106,9 +122,12 @@ sudo apt-get install mingw-w64
 ```
 
 ahora solo queda subir el exploit mediante FTP y ejecutarlo en la maquina victima. Nota: cuando ingresemos por FTP, debemos ejecutar el comando "binary" dado que se suelen perder datos de archivos al subirlo, con este comando hacemos que se suba intacto.
+
 ![](/assets/images/htb-writeup-devel/devel10.png)
 
+
 una vez subido, nos dirigimos a la ruta C:\inetpub\wwwroot y ejecutamos el exploit que acabamos de subir, y nos convertimos en el usuario **nt authority\system**
+
 ![](/assets/images/htb-writeup-devel/devel11.png)
 
 
